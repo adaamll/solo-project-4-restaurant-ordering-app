@@ -87,8 +87,14 @@ body {
   padding: 0.5em 0.75em;
   border: 1px solid #dedede;
   border-radius: 50%;
+  transition: all 250ms;
 }
 
+.add-to-cart-btn:hover,
+.add-to-cart-btn:focus {
+  border-color: #3c3c3c;
+  font-size: 1.6rem;
+}
 /* MENU SECTION END */
 
 /* ORDER CONFIRMATION SECTION */
@@ -140,6 +146,14 @@ body {
   font-family: inherit;
   color: #bbbbbb;
   margin-left: 1em;
+  text-transform: uppercase;
+  transition: all 250ms;
+}
+
+.order-remove-btn:hover,
+.order-remove-btn:focus {
+  color: #ff0000;
+  font-size: 1rem;
 }
 
 /* ORDER SECTION END */
@@ -200,6 +214,13 @@ body {
   padding: 1.5em;
   margin-top: 2em;
   border-radius: 5px;
+  transition: all 250ms;
+}
+
+.pay-btn:hover,
+.pay-btn:focus {
+  background-color: #15c58a;
+  transform: scale(1.02);
 }
 
 /* MODAL SECTION END */

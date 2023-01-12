@@ -29,16 +29,17 @@ function handleAddToCart() {
   let totalOrders = '';
   let totalPriceHtml = '';
   let orderHtml = `<h3 class="order-heading">Your order</h3>`;
-  let orderHtmlBtn = `<button class="pay-btn btn" id="complete-order-btn">
-  Complete order
-</button>`;
+  let orderHtmlBtn = `
+  <button class="pay-btn btn" id="complete-order-btn">
+    Complete order
+  </button>`;
 
-  orderedItems.forEach((item) => {
+  orderedItems.forEach((item, index) => {
     totalPrice += item.price;
     totalOrders += `
         <article class="order-items" id="order-items">
           <p class="order-name">${item.name}</p>
-          <button class="order-remove-btn btn" id="order-remove-btn" data-remove="${item.id}">
+          <button class="order-remove-btn btn" id="order-remove-btn" data-remove="${index}">
             remove
           </button>
           <p class="order-price" id="order-price">$${item.price}</p>
@@ -58,10 +59,7 @@ function handleAddToCart() {
 
 /* FUNCTION TO DELETE AN ITEM FROM THE CART */
 function deleteOrderItem(id) {
-  const item = orderedItems.findIndex((item) => {
-    item.id == id;
-  });
-  orderedItems.splice(item, 1);
+  orderedItems.splice(id, 1);
   handleAddToCart();
 }
 
@@ -73,7 +71,10 @@ function completeOrder() {
 
 /* FUNCTION THAT RENDERS THE CONFIRMATION MESSAGE OF THE PLACED ORDER */
 function orderConfirmation() {
-  confirmationMessage.innerHTML = `<p class="confirmation-message">Thanks, ${username.value}! Your order is on its way!</p>`;
+  confirmationMessage.innerHTML = `
+  <p class="confirmation-message">
+    Thanks, ${username.value}! Your order is on its way!
+  </p>`;
   modal.style.display = 'none';
   confirmationMessage.style.display = 'block';
   orderedItems = [];
@@ -83,25 +84,25 @@ function orderConfirmation() {
 function getMenuHtml() {
   let productHtml = ``;
 
-  menuArray.forEach((item) => {
-    productHtml += `<article class="menu-item" id="menu-item">
-    <img
-      src="img/${item.name}.png"
-      alt="${item.name}"
-      class="item-img"
-      id="item-img"
-    />
-    
-    <section class="item-details" id="item-details">
-      <h3 class="item-name" id="item-name">${item.name}</h3>
-      <p class="item-ingredients" id="item-ingredients">
-        ${item.ingredients}
-      </p>
-      <p class="item-price" id="item-price">$${item.price}</p>
-    </section>
-    <button class="add-to-cart-btn btn" id="add-to-cart-btn" data-item="${item.id}">+</button>
-  </article>`;
-    console.log(item.id);
+  menuArray.forEach((item, index) => {
+    productHtml += `
+    <article class="menu-item" id="menu-item">
+      <img
+        src="img/${item.name}.png"
+        alt="${item.name}"
+        class="item-img"
+        id="item-img"
+      />
+      
+      <section class="item-details" id="item-details">
+        <h3 class="item-name" id="item-name">${item.name}</h3>
+        <p class="item-ingredients" id="item-ingredients">
+          ${item.ingredients}
+        </p>
+        <p class="item-price" id="item-price">$${item.price}</p>
+      </section>
+      <button class="add-to-cart-btn btn" id="add-to-cart-btn" data-item="${index}">+</button>
+    </article>`;
   });
   return productHtml;
 }
