@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Jimmy's Diner</title>
+  </head>
+  <body>
+    <div class="wrapper" id="wrapper">
+      <header class="header">
+        <h1 class="heading">Jimmy's Diner</h1>
+        <p class="subheading">The best burgers and pizzas in town.</p>
+      </header>
+
+      <main class="menu-item-container container" id="menu-item-container">
+        <!-- <article class="menu-item" id="menu-item">
+          <img
+            src="img/pizza.png"
+            alt="pizzaslice"
+            class="item-img"
+            id="item-img"
+          />
+          
+          <section class="item-details" id="item-details">
+            <h3 class="item-name" id="item-name">Pizza</h3>
+            <p class="item-ingredients" id="item-ingredients">
+              pepperoni, mushroom, mozarella
+            </p>
+            <p class="item-price" id="item-price">$14</p>
+          </section>
+          <button class="add-to-cart-btn btn" id="add-to-cart-btn">+</button>
+        </article>    -->
+      </main>
+
+      <article class="order-confirmation hidden" id="order-confirmation">
+        <!-- <p class="confirmation-message">
+          Thanks, James! Your order is on its way!
+        </p> -->
+      </article>
+
+      <section class="order-details container hidden" id="order-details">
+        <!-- <h3 class="order-heading">Your order</h3>
+
+        <article class="order-items" id="order-items">
+          <p class="order-name">Pizza</p>
+          <button class="order-remove-btn btn" id="order-remove-btn">
+            remove
+          </button>
+          <p class="order-price" id="order-price">$14</p>
+        </article>
+
+        <article class="total" id="total">
+          <h3 class="total-heading" id="total-heading">Total price:</h3>
+          <p class="total-price" id="total-price">$</p>
+        </article>
+        <button class="pay-btn btn" id="complete-order-btn">
+          Complete order
+        </button> -->
+      </section>
+
+      <article class="modal" id="modal">
+        <h3 class="modal-heading">Enter card details</h3>
+        <form action="#">
+          <input
+            class="modal-input"
+            id="input-name"
+            aria-label="Name"
+            type="text"
+            placeholder="Enter your name"
+            required
+          />
+          <input
+            class="modal-input"
+            id="input-card"
+            aria-label="card number"
+            type="number"
+            placeholder="Enter card number"
+            required
+          />
+          <input
+            class="modal-input"
+            id="input-cvv"
+            aria-label="cvv code"
+            type="number"
+            placeholder="Enter CVV"
+            required
+          />
+          <button class="pay-btn btn" id="pay-btn">Pay</button>
+        </form>
+      </article>
+    </div>
+
+    <script src="app.js" type="module"></script>
+  </body>
+</html>

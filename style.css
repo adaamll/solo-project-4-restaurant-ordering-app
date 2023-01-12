@@ -1,0 +1,211 @@
+@import url('https://fonts.googleapis.com/css2?family=Smythe&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+body {
+  min-width: 100vw;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: antiquewhite;
+  font-family: 'Smythe', cursive;
+}
+
+.wrapper {
+  position: relative;
+  width: 500px;
+  min-height: 900px;
+  background-color: #fff;
+  border-radius: 5px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.container {
+  padding: 1em;
+}
+
+.btn {
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+}
+
+/* HEADER SECTION */
+
+.header {
+  background-image: url(/img/header-img.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  min-height: 170px;
+  color: #fff;
+  padding: 2.5em 3em;
+}
+
+.heading {
+  font-weight: 300;
+  margin-bottom: 0.3em;
+}
+
+/* HEADER SECTION END */
+
+/* MENU SECTION */
+.menu-item {
+  display: flex;
+  align-items: center;
+  gap: 1em;
+  /* margin: 1em 2em; */
+  padding: 1em 0 2em 0;
+  border-bottom: 1px solid #dedede;
+}
+
+.item-details {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+}
+
+.item-name {
+  font-size: 1.4rem;
+}
+
+.item-ingredients {
+  color: #8b8b8b;
+  font-size: 0.8rem;
+}
+
+.add-to-cart-btn {
+  font-size: 1.5rem;
+  color: #3c3c3c;
+  margin-left: auto;
+  padding: 0.5em 0.75em;
+  border: 1px solid #dedede;
+  border-radius: 50%;
+}
+
+/* MENU SECTION END */
+
+/* ORDER CONFIRMATION SECTION */
+
+.order-confirmation {
+  display: none;
+  background-color: #ecfdf5;
+  padding: 2em;
+  width: 90%;
+  text-align: center;
+  margin: 0 auto;
+  border-radius: 4px;
+}
+
+.confirmation-message {
+  color: #065f46;
+  font-size: 1.5rem;
+}
+
+/* ORDER CONFIRMATION SECTION END*/
+
+/* ORDER SECTION */
+
+.order-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  margin-top: auto;
+}
+
+.order-heading {
+  text-align: center;
+  margin-bottom: 3em;
+  font-size: 1.5rem;
+}
+
+.order-items {
+  display: flex;
+  margin-bottom: 0.1em;
+  font-size: 1.5rem;
+}
+
+.order-price {
+  margin-left: auto;
+  font-size: 1rem;
+}
+
+.order-remove-btn {
+  font-family: inherit;
+  color: #bbbbbb;
+  margin-left: 1em;
+}
+
+/* ORDER SECTION END */
+
+/* TOTAL ORDER SECTION */
+
+.total {
+  border-top: 1px solid #000;
+  padding-top: 1em;
+  display: flex;
+  justify-content: space-between;
+}
+
+/* TOTAL ORDER SECTION END */
+
+/* MODAL SECTION */
+
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 400px;
+  height: 400px;
+  margin-top: -170px;
+  margin-left: -200px;
+  padding: 20px;
+  border-radius: 5px;
+  background-color: #fff;
+  box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.modal-heading {
+  text-align: center;
+  margin: 1em;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 1.2rem;
+}
+
+.modal-input {
+  width: 100%;
+  padding: 1em;
+  border: 1px solid #757575;
+  border-radius: 4px;
+  margin-bottom: 1em;
+}
+
+.pay-btn {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: 600;
+  color: #fff;
+  background-color: #16db99;
+  width: 100%;
+  padding: 1.5em;
+  margin-top: 2em;
+  border-radius: 5px;
+}
+
+/* MODAL SECTION END */
+
+/* TOGGLE CLASSES */
+
+.hidden {
+  display: none;
+}
