@@ -61,6 +61,9 @@ function handleAddToCart() {
 function deleteOrderItem(id) {
   orderedItems.splice(id, 1);
   handleAddToCart();
+  if (orderedItems.length < 1) {
+    orderDetails.style.display = 'none';
+  }
 }
 
 /* FUNCTION TO PLACE YOUR ORDER AND RENDER THE PAYMENT WINDOW */
