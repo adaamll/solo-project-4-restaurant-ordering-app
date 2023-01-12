@@ -5,7 +5,6 @@ const orderDetails = document.getElementById('order-details');
 const modal = document.getElementById('modal');
 const confirmationMessage = document.getElementById('order-confirmation');
 const username = document.getElementById('input-name');
-
 let orderedItems = [];
 
 document.addEventListener('click', (e) => {
@@ -14,14 +13,12 @@ document.addEventListener('click', (e) => {
     orderDetails.style.display = 'flex';
     confirmationMessage.style.display = 'none';
     handleAddToCart();
-  }
-
-  if (e.target.id === 'complete-order-btn') {
+  } else if (e.target.id === 'complete-order-btn') {
     completeOrder();
-  }
-
-  if (e.target.id === 'pay-btn') {
+  } else if (e.target.id === 'pay-btn') {
     orderConfirmation();
+  } else if (e.target.dataset.remove) {
+    deleteOrderItem(e.target.dataset.remove);
   }
 });
 
@@ -35,6 +32,14 @@ function orderConfirmation() {
   modal.style.display = 'none';
   confirmationMessage.style.display = 'block';
   orderedItems = [];
+}
+
+function deleteOrderItem(id) {
+  const item = orderedItems.findIndex((item) => {
+    item.id == id;
+  });
+  orderedItems.splice(item, 1);
+  handleAddToCart();
 }
 
 function handleAddToCart() {
@@ -51,7 +56,7 @@ function handleAddToCart() {
     allOrders += `
         <article class="order-items" id="order-items">
           <p class="order-name">${item.name}</p>
-          <button class="order-remove-btn btn" id="order-remove-btn">
+          <button class="order-remove-btn btn" id="order-remove-btn" data-remove="${item.id}">
             remove
           </button>
           <p class="order-price" id="order-price">$${item.price}</p>
