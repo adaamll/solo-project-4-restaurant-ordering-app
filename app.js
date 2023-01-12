@@ -7,6 +7,7 @@ const confirmationMessage = document.getElementById('order-confirmation');
 const username = document.getElementById('input-name');
 let orderedItems = [];
 
+/* EVENTLISTENER TO LISTEN FOR DIFFRENT KIND OF CLICKS ON THE APP */
 document.addEventListener('click', (e) => {
   if (e.target.dataset.item) {
     orderedItems.push(menuArray[e.target.dataset.item]);
@@ -22,29 +23,10 @@ document.addEventListener('click', (e) => {
   }
 });
 
-function completeOrder() {
-  modal.style.display = 'flex';
-  orderDetails.style.display = 'none';
-}
-
-function orderConfirmation() {
-  confirmationMessage.innerHTML = `<p class="confirmation-message">Thanks, ${username.value}! Your order is on its way!</p>`;
-  modal.style.display = 'none';
-  confirmationMessage.style.display = 'block';
-  orderedItems = [];
-}
-
-function deleteOrderItem(id) {
-  const item = orderedItems.findIndex((item) => {
-    item.id == id;
-  });
-  orderedItems.splice(item, 1);
-  handleAddToCart();
-}
-
+/* FUNCTION TO HANDLE ADDING ITEMS TO THE CART AND RENDERING THE HTML-CODE FOR THE CART */
 function handleAddToCart() {
   let totalPrice = 0;
-  let allOrders = '';
+  let totalOrders = '';
   let totalPriceHtml = '';
   let orderHtml = `<h3 class="order-heading">Your order</h3>`;
   let orderHtmlBtn = `<button class="pay-btn btn" id="complete-order-btn">
@@ -53,7 +35,7 @@ function handleAddToCart() {
 
   orderedItems.forEach((item) => {
     totalPrice += item.price;
-    allOrders += `
+    totalOrders += `
         <article class="order-items" id="order-items">
           <p class="order-name">${item.name}</p>
           <button class="order-remove-btn btn" id="order-remove-btn" data-remove="${item.id}">
@@ -71,9 +53,33 @@ function handleAddToCart() {
         </article>`;
 
   orderDetails.innerHTML =
-    orderHtml + allOrders + totalPriceHtml + orderHtmlBtn;
+    orderHtml + totalOrders + totalPriceHtml + orderHtmlBtn;
 }
 
+/* FUNCTION TO DELETE AN ITEM FROM THE CART */
+function deleteOrderItem(id) {
+  const item = orderedItems.findIndex((item) => {
+    item.id == id;
+  });
+  orderedItems.splice(item, 1);
+  handleAddToCart();
+}
+
+/* FUNCTION TO PLACE YOUR ORDER AND RENDER THE PAYMENT WINDOW */
+function completeOrder() {
+  modal.style.display = 'flex';
+  orderDetails.style.display = 'none';
+}
+
+/* FUNCTION THAT RENDERS THE CONFIRMATION MESSAGE OF THE PLACED ORDER */
+function orderConfirmation() {
+  confirmationMessage.innerHTML = `<p class="confirmation-message">Thanks, ${username.value}! Your order is on its way!</p>`;
+  modal.style.display = 'none';
+  confirmationMessage.style.display = 'block';
+  orderedItems = [];
+}
+
+/* FUNCTIONS TO RENDER THE MENU ITEMS */
 function getMenuHtml() {
   let productHtml = ``;
 
