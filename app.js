@@ -1,23 +1,29 @@
 import { menuArray } from './data.js';
 
-const itemContainer = document.getElementById('menu-item-container');
 const orderDetails = document.getElementById('order-details');
 const modal = document.getElementById('modal');
 const confirmationMessage = document.getElementById('order-confirmation');
-const username = document.getElementById('input-name');
+const nameInput = document.getElementById('input-name');
+const cardInput = document.getElementById('input-card');
+const cvvInput = document.getElementById('input-cvv');
+
 let orderedItems = [];
+
+/* EVENTLISTENER FOR PAY BUTTON THAT TRIGGERS IF ALL THE INPUTS ARE FILLE OUT */
+document.getElementById('pay-btn').addEventListener('click', () => {
+  if (nameInput.value && cardInput.value && cvvInput.value) {
+    orderConfirmation();
+  }
+});
 
 /* EVENTLISTENER TO LISTEN FOR DIFFRENT KIND OF CLICKS ON THE APP */
 document.addEventListener('click', (e) => {
   if (e.target.dataset.item) {
     orderedItems.push(menuArray[e.target.dataset.item]);
     orderDetails.style.display = 'flex';
-    confirmationMessage.style.display = 'none';
     handleAddToCart();
   } else if (e.target.id === 'complete-order-btn') {
     completeOrder();
-  } else if (e.target.id === 'pay-btn') {
-    orderConfirmation();
   } else if (e.target.dataset.remove) {
     deleteOrderItem(e.target.dataset.remove);
   }
@@ -25,6 +31,7 @@ document.addEventListener('click', (e) => {
 
 /* FUNCTION TO HANDLE ADDING ITEMS TO THE CART AND RENDERING THE HTML-CODE FOR THE CART */
 function handleAddToCart() {
+  confirmationMessage.style.display = 'none';
   let totalPrice = 0;
   let totalOrders = '';
   let totalPriceHtml = '';
@@ -74,6 +81,7 @@ function completeOrder() {
 
 /* FUNCTION THAT RENDERS THE CONFIRMATION MESSAGE OF THE PLACED ORDER */
 function orderConfirmation() {
+  const username = document.getElementById('input-name');
   confirmationMessage.innerHTML = `
   <p class="confirmation-message">
     Thanks, ${username.value}! Your order is on its way!
@@ -111,7 +119,7 @@ function getMenuHtml() {
 }
 
 function render() {
-  itemContainer.innerHTML = getMenuHtml();
+  document.getElementById('menu-item-container').innerHTML = getMenuHtml();
 }
 
 render();
