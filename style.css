@@ -14,6 +14,7 @@ body {
   align-items: center;
   background-color: antiquewhite;
   font-family: 'Smythe', cursive;
+  padding: 3em;
 }
 
 .wrapper {
@@ -41,11 +42,12 @@ body {
 
 .header {
   background-image: url(/img/header-img.png);
-  background-size: contain;
+  background-size: cover;
   background-repeat: no-repeat;
-  min-height: 170px;
+  background-position: bottom;
   color: #fff;
-  padding: 2.5em 3em;
+  min-height: 140px;
+  padding: 2em;
 }
 
 .heading {
@@ -60,7 +62,6 @@ body {
   display: flex;
   align-items: center;
   gap: 1em;
-  /* margin: 1em 2em; */
   padding: 1em 0 2em 0;
   border-bottom: 1px solid #dedede;
 }
@@ -93,7 +94,6 @@ body {
 .add-to-cart-btn:hover,
 .add-to-cart-btn:focus {
   border-color: #3c3c3c;
-  font-size: 1.6rem;
 }
 /* MENU SECTION END */
 
@@ -224,3 +224,90 @@ body {
 }
 
 /* ORDER CONFIRMATION SECTION END*/
+
+/* MEDIA QUERIES */
+@media (max-width: 600px) {
+  .wrapper {
+    width: 320px;
+    min-height: 600px;
+  }
+
+  .header {
+    min-height: 90px;
+  }
+
+  .heading {
+    font-size: 1.5rem;
+  }
+
+  .subheading {
+    font-size: 0.8rem;
+  }
+
+  .item-name {
+    font-size: 1.2rem;
+  }
+
+  .item-ingredients {
+    font-size: 0.6rem;
+  }
+  .add-to-cart-btn {
+    font-size: 1rem;
+  }
+
+  .item-img {
+    max-width: 20%;
+  }
+
+  .order-heading {
+    font-size: 1rem;
+  }
+
+  .order-items {
+    font-size: 1rem;
+  }
+
+  .order-price {
+    font-size: 0.8rem;
+  }
+
+  .order-remove-btn {
+    font-size: 0.8rem;
+  }
+
+  form {
+    text-align: center;
+  }
+
+  .modal {
+    transform: translate(-50%, -50%);
+    width: 250px;
+    height: 300px;
+    margin-top: 0;
+    margin-left: 0;
+    padding: 10px;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .modal-input {
+    width: 90%;
+    margin-bottom: 0.5em;
+    padding: 0.6em;
+  }
+
+  .pay-btn {
+    width: 90%;
+    padding: 1em;
+    margin-top: 1.2em;
+  }
+
+  .order-confirmation {
+    padding: 1em;
+    width: 90%;
+  }
+
+  .confirmation-message {
+    font-size: 1rem;
+  }
+}
