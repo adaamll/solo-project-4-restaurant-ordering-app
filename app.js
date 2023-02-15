@@ -10,8 +10,9 @@ const cvvInput = document.getElementById('input-cvv');
 let orderedItems = [];
 
 /* EVENTLISTENER FOR PAY BUTTON THAT TRIGGERS IF ALL THE INPUTS ARE FILLE OUT */
-document.getElementById('pay-btn').addEventListener('click', () => {
+document.getElementById('pay-btn').addEventListener('click', (e) => {
   if (nameInput.value && cardInput.value && cvvInput.value) {
+    e.preventDefault();
     orderConfirmation();
   }
 });

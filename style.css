@@ -97,25 +97,6 @@ body {
 }
 /* MENU SECTION END */
 
-/* ORDER CONFIRMATION SECTION */
-
-.order-confirmation {
-  display: none;
-  background-color: #ecfdf5;
-  padding: 2em;
-  width: 90%;
-  text-align: center;
-  margin: 0 auto;
-  border-radius: 4px;
-}
-
-.confirmation-message {
-  color: #065f46;
-  font-size: 1.5rem;
-}
-
-/* ORDER CONFIRMATION SECTION END*/
-
 /* ORDER SECTION */
 
 .order-details {
@@ -225,8 +206,21 @@ body {
 
 /* MODAL SECTION END */
 
-/* TOGGLE CLASSES */
+/* ORDER CONFIRMATION SECTION */
 
-.hidden {
+.order-confirmation {
   display: none;
+  background-color: #ecfdf5;
+  padding: 2em;
+  width: 90%;
+  text-align: center;
+  margin: 0 auto;
+  border-radius: 4px;
 }
+
+.confirmation-message {
+  color: #065f46;
+  font-size: 1.5rem;
+}
+
+/* ORDER CONFIRMATION SECTION END*/
